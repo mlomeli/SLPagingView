@@ -414,7 +414,7 @@
                                                            views:@{@"v" : v}]];
                 }
             else{
-                v.frame = (CGRect){SCREEN_SIZE.width * idx, 0, SCREEN_SIZE.width, CGRectGetHeight(self.view.frame)};
+                v.frame = (CGRect){SCREEN_SIZE.width * idx, 0, SCREEN_SIZE.width, CGRectGetHeight(self.view.frame)-64};
             }
         }];
     }
