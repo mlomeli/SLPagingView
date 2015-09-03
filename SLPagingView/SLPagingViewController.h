@@ -76,10 +76,17 @@ typedef void(^SLPagingViewDidChanged)(NSInteger currentPage);
 @property (nonatomic, strong) UIColor *currentPageControlColor;
 
 /*
+ *  Current selected index;
+ */
+@property (nonatomic) NSInteger indexSelected;
+
+/*
  *  Navigation Items Style
  *  Allow to move items from the screen bounds to the center
  */
 @property (nonatomic) SLNavigationSideItemsStyle navigationSideItemsStyle;
+
+
 
 /*
  *  SLPagingViewController's constructor
