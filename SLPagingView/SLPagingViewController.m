@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSMutableArray *navItemsViews;
 @property (nonatomic) BOOL needToShowPageControl;
 @property (nonatomic) BOOL isUserInteraction;
-@property (nonatomic) NSInteger indexSelected;
+
 
 @end
 
