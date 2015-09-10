@@ -18,6 +18,19 @@ typedef NS_ENUM(NSInteger, SLNavigationSideItemsStyle) {
     SLNavigationSideItemsStyleCloseToEachOne = 100
 };
 
+@interface UINavigationBar(Additions)
+
+- (CGSize)sizeThatFits:(CGSize)size;
+
+@end
+@implementation UINavigationBar (Additions)
+
+- (CGSize)sizeThatFits:(CGSize)size {
+  CGSize newSize = CGSizeMake(self.frame.size.width,50);
+  return newSize;
+}
+
+@end
 /*
  *  Block delegates
  */
