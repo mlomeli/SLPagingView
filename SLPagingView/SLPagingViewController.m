@@ -82,6 +82,7 @@
                 @throw exc;
             }
         }
+
     }
     return self;
 }
@@ -213,7 +214,7 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    self.navigationBarView.frame = (CGRect){0, 0, SCREEN_SIZE.width, 44};
+    self.navigationBarView.frame = (CGRect){0, 0, SCREEN_SIZE.width, 50};
 }
 
 #pragma mark - public methods
@@ -262,6 +263,7 @@
                                  forKey:@(tag)];
     [self.viewsDict setObject:controller.view
                              forKey:@(tag)];
+
     // Do we need to refresh the UI ?
     if(refresh)
        [self setupPagingProcess];
@@ -315,7 +317,10 @@
     CGFloat distance = (SCREEN_SIZE.width/2) - self.navigationSideItemsStyle;
     CGSize vSize = ([v isKindOfClass:[UILabel class]])? [self getLabelSize:(UILabel*)v] : v.frame.size;
     CGFloat originX = (SCREEN_SIZE.width/2 - vSize.width/2) + self.navItemsViews.count*distance;
-    v.frame = (CGRect){originX, 8, vSize.width, vSize.height};
+  
+    CGFloat height = (50 - v.frame.size.height)/2;
+    v.frame = (CGRect){originX, height, vSize.width, vSize.height};
+  
     v.tag = tag;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(tapOnHeader:)];
@@ -414,7 +419,7 @@
                                                            views:@{@"v" : v}]];
                 }
             else{
-                v.frame = (CGRect){SCREEN_SIZE.width * idx, 0, SCREEN_SIZE.width, CGRectGetHeight(self.view.frame)-64};
+                v.frame = (CGRect){SCREEN_SIZE.width * idx, 0, SCREEN_SIZE.width, CGRectGetHeight(self.view.frame)-70};
             }
         }];
     }
@@ -454,7 +459,9 @@
         CGFloat distance = (SCREEN_SIZE.width/2) - self.navigationSideItemsStyle;
         CGSize vSize     = ([v isKindOfClass:[UILabel class]])? [self getLabelSize:(UILabel*)v] : v.frame.size;
         CGFloat originX  = ((SCREEN_SIZE.width/2 - vSize.width/2) + i*distance) - xOffset/(SCREEN_SIZE.width/distance);
-        v.frame          = (CGRect){originX, 8, vSize.width, vSize.height};
+        CGFloat height = (50 - v.frame.size.height)/2;
+        v.frame = (CGRect){originX, height, vSize.width, vSize.height};
+      
         i++;
     }];
 }
